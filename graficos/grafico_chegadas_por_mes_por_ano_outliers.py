@@ -3,31 +3,23 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import calendar
 
-# === 1. Carregar o dataset ===
 df = pd.read_csv('../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
 
-# === 2. Agrupar chegadas por ano e mês ===
 chegadas_mensais = df.groupby(['ano', 'cod mes'])['chegadas'].sum().reset_index()
 
-# === 3. Calcular a média mensal histórica (excluindo anos especiais) ===
 anos_excluidos = [2014, 2016, 2020, 2021]
 media_historica = chegadas_mensais[~chegadas_mensais['ano'].isin(anos_excluidos)]
 media_mensal = media_historica.groupby('cod mes')['chegadas'].mean().reset_index()
 media_mensal['ano'] = 'Média histórica'
 
-# === 4. Separar os anos especiais ===
 anos_especiais = chegadas_mensais[chegadas_mensais['ano'].isin(anos_excluidos)]
 
-# === 5. Unir média histórica + anos especiais ===
 df_final = pd.concat([media_mensal, anos_especiais], ignore_index=True)
 
-# === 6. Adicionar nome do mês ===
 df_final['nome_mes'] = df_final['cod mes'].apply(lambda x: calendar.month_name[x])
 
-# === 7. Ordenar ===
 df_final = df_final.sort_values(by=['ano', 'cod mes'])
 
-# === 8. Gráfico final ===
 plt.figure(figsize=(14, 7))
 sns.lineplot(data=df_final, x='cod mes', y='chegadas', hue='ano', palette='Set1', marker='o')
 plt.title('Chegadas por Mês — Comparação de Eventos Especiais com Média Histórica', fontsize=16)

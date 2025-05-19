@@ -1,3 +1,8 @@
+
+# Gráfico com chegadas de estrangeiros da Argentina e valorização do peso em relação ao real.
+# Comparação entre janeiro de cada ano (2002-2024)
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -30,10 +35,8 @@ anos = list(range(2005, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-# Adicionar título
 plt.title('Valor Médio do peso e Chegadas dos Argentinos ao Brasil (Janeiro, 2005–2024)', fontsize=14)
 
-# Ajuste final
 fig.tight_layout()
 plt.grid(True)
 plt.show()

@@ -1,3 +1,9 @@
+
+# Gráfico com chegadas de estrangeiros dos países que começaram a utilizar o euro em 2002 e valorização do euro em relação ao real.
+# Comparação entre janeiro de cada ano (2002-2024)
+
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
