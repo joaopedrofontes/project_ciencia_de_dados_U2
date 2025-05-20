@@ -1,6 +1,6 @@
 
 # Gráfico com chegadas de estrangeiros dos EUA e valorização do dólar em relação ao real.
-# Comparação entre janeiro de cada ano (1994-2024)
+# Comparação entre janeiro de cada ano (1995-2024)
 
 
 import pandas as pd
