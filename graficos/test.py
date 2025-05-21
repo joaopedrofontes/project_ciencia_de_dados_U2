@@ -10,21 +10,21 @@ meses_pt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
 # Carrega o dataset
 df = pd.read_csv('../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
 
-# Mantém dados a partir de 1995 (sem exclusão de anos)
-df = df[df['ano'] >= 1995]
+# Filtra apenas para turistas europeus a partir de 1995
+df_europa = df[(df['ano'] >= 1995) & (df['país'] == 'Argentina')]
 
 # Agrupamento por mês
-chegadas_por_mes = df.groupby('cod mes')['chegadas'].sum().reset_index()
-chegadas_por_mes['nome_mes'] = chegadas_por_mes['cod mes'].apply(lambda x: meses_pt[x - 1])
-chegadas_por_mes = chegadas_por_mes.sort_values(by='cod mes')
+chegadas_por_mes_europa = df_europa.groupby('cod mes')['chegadas'].sum().reset_index()
+chegadas_por_mes_europa['nome_mes'] = chegadas_por_mes_europa['cod mes'].apply(lambda x: meses_pt[x - 1])
+chegadas_por_mes_europa = chegadas_por_mes_europa.sort_values(by='cod mes')
 
 # Plot
 plt.figure(figsize=(12, 6))
-sns.barplot(data=chegadas_por_mes, x='nome_mes', y='chegadas', color='darkblue', edgecolor='black')
+sns.barplot(data=chegadas_por_mes_europa, x='nome_mes', y='chegadas', color='darkblue', edgecolor='black')
 
 # Ajustes visuais
 plt.xlabel('Mês')
-plt.ylabel('Total de Chegadas')
+plt.ylabel('Total de Chegadas (Europa)')
 plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
@@ -37,6 +37,6 @@ plt.gca().yaxis.set_major_formatter(
 plt.title('')
 
 # Salvar imagem
-plt.savefig('chegadas_por_mes_com_todos_os_anos.png', dpi=300, transparent=True)
+plt.savefig('chegadas_europeus_por_mes_todos_os_anos.png', dpi=300, transparent=True)
 
 plt.show()

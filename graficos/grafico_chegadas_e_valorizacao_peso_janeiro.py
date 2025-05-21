@@ -31,12 +31,14 @@ ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='d
 ax2.set_ylabel('Total de Chegadas', color='darkorange')
 ax2.tick_params(axis='y', labelcolor='darkorange')
 
+
 anos = list(range(2005, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-plt.title('Valor Médio do peso e Chegadas dos Argentinos ao Brasil (Janeiro, 2005–2024)', fontsize=14)
+plt.title('', fontsize=14)
 
 fig.tight_layout()
 plt.grid(True)
+plt.savefig('chegadas_eua_peso_janeiro_2005_2024.png', dpi=300)
 plt.show()

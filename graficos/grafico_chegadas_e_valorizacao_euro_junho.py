@@ -36,12 +36,14 @@ ax2 = ax1.twinx()
 ax2.plot(chegadas_por_ano['ano'], chegadas_por_ano['chegadas'], color='darkorange', marker='s', label='Chegadas')
 ax2.set_ylabel('Total de Chegadas', color='darkorange')
 ax2.tick_params(axis='y', labelcolor='darkorange')
+ax2.set_ylim(0, 160000)  # Limita o eixo das chegadas
 
 anos = list(range(2002, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-plt.title('Valor Médio do Euro e Chegadas ao Brasil (Junho, 2002–2024)', fontsize=14)
+plt.title('', fontsize=14)
 fig.tight_layout()
 plt.grid(True)
+plt.savefig('chegadas_eua_euro_janeiro_1995_2024.png', dpi=300)
 plt.show()

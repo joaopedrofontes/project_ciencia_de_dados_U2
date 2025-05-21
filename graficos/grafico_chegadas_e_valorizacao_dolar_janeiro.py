@@ -30,13 +30,17 @@ ax2 = ax1.twinx()
 ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='darkorange', marker='s', label='Chegadas (Estados Unidos)')
 ax2.set_ylabel('Total de Chegadas', color='darkorange')
 ax2.tick_params(axis='y', labelcolor='darkorange')
+ax2.set_ylim(0, 140000)  # Limita o eixo das chegadas
+
 
 anos = list(range(1995, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-plt.title('Valor Médio do dólar e Chegadas dos Estados Unidos ao Brasil (Janeiro, 1995–2024)', fontsize=14)
+plt.title('', fontsize=14)
 
 fig.tight_layout()
 plt.grid(True)
+plt.savefig('chegadas_eua_dolar_janeiro_1995_2024.png', dpi=300)
+
 plt.show()
