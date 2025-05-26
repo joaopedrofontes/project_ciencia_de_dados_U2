@@ -11,7 +11,7 @@ meses_pt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
 df = pd.read_csv('../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
 
 # Filtra apenas para turistas europeus a partir de 1995
-df_europa = df[(df['ano'] >= 1995) & (df['país'] == 'Argentina')]
+df_europa = df[(df['ano'] >= 1995) & (df['país'] == 'Chile')]
 
 # Agrupamento por mês
 chegadas_por_mes_europa = df_europa.groupby('cod mes')['chegadas'].sum().reset_index()
@@ -37,6 +37,6 @@ plt.gca().yaxis.set_major_formatter(
 plt.title('')
 
 # Salvar imagem
-plt.savefig('chegadas_europeus_por_mes_todos_os_anos.png', dpi=300, transparent=True)
+#plt.savefig('chegadas_europeus_por_mes_todos_os_anos.png', dpi=300, transparent=True)
 
 plt.show()

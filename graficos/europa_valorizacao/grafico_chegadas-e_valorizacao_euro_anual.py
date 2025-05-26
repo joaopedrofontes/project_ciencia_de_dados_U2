@@ -1,14 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-val_df = pd.read_csv('../valorizacao_csv_processado/EUR_BRL_Dados_Históricos_v2.csv', sep=',', encoding='UTF-8')
+val_df = pd.read_csv('../../valorizacao_csv_processado/EUR_BRL_Dados_Históricos_v2.csv', sep=',', encoding='UTF-8')
 
 val_df['ano'] = val_df['Data'].str[-4:].astype(int)
 val_df['média'] = val_df['média'].str.replace(',', '.', regex=False).astype(float)
 
 val_anual = val_df[val_df['ano'] >= 2002].groupby('ano')['média'].mean().reset_index()
 
-cheg_df = pd.read_csv('../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
+cheg_df = pd.read_csv('../../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
 
 euro_2002_paises = [
     'Alemanha', 'Áustria', 'Bélgica', 'Espanha', 'Finlândia',

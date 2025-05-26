@@ -1,14 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-val_df = pd.read_csv('../valorizacao_csv_processado/USD_BRL_Dados_Históricos_v2.csv', sep=',', encoding='UTF-8')
+val_df = pd.read_csv('../../valorizacao_csv_processado/USD_BRL_Dados_Históricos_v2.csv', sep=',', encoding='UTF-8')
 
 val_df['ano'] = val_df['Data'].str[-4:].astype(int)
 val_df['média'] = val_df['média'].str.replace(',', '.', regex=False).astype(float)
 
 val_anual = val_df[val_df['ano'] >= 1995].groupby('ano')['média'].mean().reset_index()
 
-cheg_df = pd.read_csv('../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
+cheg_df = pd.read_csv('../../chegadas_csv_processados/chegadas_1995_to_2024_concatenados_v2.csv', sep=';', encoding='ISO-8859-1')
 
 cheg_americanos = cheg_df[(cheg_df['país'] == 'Estados Unidos') & (cheg_df['ano'] >= 1995)]
 chegadas_anual = cheg_americanos.groupby('ano')['chegadas'].sum().reset_index()
