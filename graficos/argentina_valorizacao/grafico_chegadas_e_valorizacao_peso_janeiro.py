@@ -21,24 +21,24 @@ chegadas_por_ano_jan = cheg_janeiro_eua.groupby('ano')['chegadas'].sum().reset_i
 
 fig, ax1 = plt.subplots(figsize=(13, 6))
 
-ax1.plot(val_janeiro['ano'], val_janeiro['média'], color='royalblue', marker='o', label='Valor Médio do Peso (R$)')
+ax1.plot(val_janeiro['ano'], val_janeiro['média'], color='green', marker='o', label='Valor Médio do Peso (R$)')
 ax1.set_xlabel('Ano')
-ax1.set_ylabel('Valor Médio do Peso (R$)', color='royalblue')
-ax1.tick_params(axis='y', labelcolor='royalblue')
+ax1.set_ylabel('Valor Médio do Peso (R$)', color='green')
+ax1.tick_params(axis='y', labelcolor='green')
 
 ax2 = ax1.twinx()
-ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='darkorange', marker='s', label='Chegadas (Argentina)')
-ax2.set_ylabel('Total de Chegadas', color='darkorange')
-ax2.tick_params(axis='y', labelcolor='darkorange')
+ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='royalblue', marker='s', label='Chegadas (Argentina)')
+ax2.set_ylabel('Total de Chegadas', color='royalblue')
+ax2.tick_params(axis='y', labelcolor='royalblue')
 
 
 anos = list(range(2005, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-plt.title('', fontsize=14)
+plt.title('Chegadas de argentinos e valor do peso em janeiro (2005-2024)', fontsize=14)
 
 fig.tight_layout()
 plt.grid(True)
-plt.savefig('chegadas_eua_peso_janeiro_2005_2024.png', dpi=300)
+plt.savefig('chegadas_argentina_peso_janeiro_2005_2024.png', dpi=300)
 plt.show()

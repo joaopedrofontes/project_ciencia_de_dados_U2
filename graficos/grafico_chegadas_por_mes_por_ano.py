@@ -33,8 +33,7 @@ plt.gca().yaxis.set_major_formatter(
     ticker.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(',', ' '))
 )
 
-# Remove o título
-plt.title('')
+plt.title('Total de chegadas por mês (1995-2024)')
 
 # Salvar imagem
 plt.savefig('chegadas_por_mes_com_todos_os_anos.png', dpi=300, transparent=True)

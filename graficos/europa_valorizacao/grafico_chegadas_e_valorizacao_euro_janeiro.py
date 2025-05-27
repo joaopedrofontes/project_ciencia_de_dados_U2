@@ -28,21 +28,21 @@ chegadas_por_ano_jan = cheg_janeiro_euro.groupby('ano')['chegadas'].sum().reset_
 
 fig, ax1 = plt.subplots(figsize=(13, 6))
 
-ax1.plot(val_janeiro['ano'], val_janeiro['média'], color='royalblue', marker='o', label='Valor Médio do Euro (R$)')
+ax1.plot(val_janeiro['ano'], val_janeiro['média'], color='green', marker='o', label='Valor Médio do Euro (R$)')
 ax1.set_xlabel('Ano')
-ax1.set_ylabel('Valor Médio do Euro (R$)', color='royalblue')
-ax1.tick_params(axis='y', labelcolor='royalblue')
+ax1.set_ylabel('Valor Médio do Euro (R$)', color='green')
+ax1.tick_params(axis='y', labelcolor='green')
 
 ax2 = ax1.twinx()
-ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='darkorange', marker='s', label='Chegadas')
-ax2.set_ylabel('Total de Chegadas', color='darkorange')
-ax2.tick_params(axis='y', labelcolor='darkorange')
+ax2.plot(chegadas_por_ano_jan['ano'], chegadas_por_ano_jan['chegadas'], color='royalblue', marker='s', label='royalblue')
+ax2.set_ylabel('Total de Chegadas', color='royalblue')
+ax2.tick_params(axis='y', labelcolor='royalblue')
 
 anos = list(range(2002, 2025))
 ax1.set_xticks(anos)
 ax1.set_xticklabels(anos, rotation=45)
 
-plt.title('', fontsize=14)
+plt.title('Chegadas de estrangeiros dos paises que adotaram o euro em 2002 e valor do euro em janeiro (2002-2024)', fontsize=14)
 fig.tight_layout()
 plt.grid(True)
 plt.savefig('chegadas_eua_euro_janeiro_1995_2024.png', dpi=300)

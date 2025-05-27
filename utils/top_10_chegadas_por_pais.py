@@ -21,7 +21,7 @@ plt.figure(figsize=(10, 6))
 ax = top_paises.plot(kind='bar', color='coral', edgecolor='black')
 ax.yaxis.set_major_formatter(formatter)
 
-plt.title('')
+plt.title('Os 10 países com mais chegadas (1995-2025)')
 plt.xlabel('País')
 plt.ylabel('Quantidade de Chegadas')
 plt.xticks(rotation=45, ha='right')

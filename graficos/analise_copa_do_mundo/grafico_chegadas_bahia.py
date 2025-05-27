@@ -23,7 +23,7 @@ plt.ylabel('Total de Chegadas')
 plt.xticks(df_final['data'], df_final['data'].dt.strftime('%Y-%m'), rotation=45)
 
 # Remover título, grid e bordas superiores/direitas
-plt.title('')
+plt.title('Chegadas de estrangeiros na Bahia (2013-2015)')
 plt.grid(False)
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)

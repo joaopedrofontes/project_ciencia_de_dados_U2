@@ -22,7 +22,7 @@ df_final['chegadas'] = df_final['chegadas'].fillna(0).astype(int)
 # Plot do gráfico de colunas
 plt.figure(figsize=(14, 6))
 plt.bar(df_final['data'], df_final['chegadas'], color='darkblue', width=20)
-plt.title('', fontsize=14)
+plt.title('Chegadas de alemães em Pernambuco (2013-2015)', fontsize=14)
 plt.xlabel('Data (Ano-Mês)')
 plt.ylabel('Total de Chegadas')
 plt.xticks(df_final['data'], df_final['data'].dt.strftime('%Y-%m'), rotation=45)

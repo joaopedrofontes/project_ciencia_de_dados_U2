@@ -33,7 +33,7 @@ for i, date in enumerate(df_final_rio['data']):
 plt.xticks(df_final_rio['data'], xticks_to_show, rotation=45)
 
 # Estética
-plt.title('')
+plt.title('Chegadas de estrangeiros no Rio de Janeiro (2013-2017)')
 plt.grid(False)
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
